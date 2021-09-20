@@ -16,7 +16,7 @@ For very long time I was interested in programming. More than a year ago I came 
 
 ----------
 
-### Education and courses:
+### Education and Courses:
 
 * **CS50's Introduction to Computer Science** (Complete)<br>
 * **CS50's Web Programming with Python and JavaScript** (Final project)<br>
