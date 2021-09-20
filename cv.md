@@ -74,3 +74,4 @@ function revrot(str, sz) {
 * **English** - B2 (Epam Test)<br>
 * **Turkish**<br>
 * **Russian**<br>
+* **Kazakh**<br>
