@@ -18,13 +18,19 @@
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                <a class="nav-link active" aria-current="page" href="#">Top</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Link</a>
+                                <a class="nav-link" href="#contacts">Contact Information</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                                <a class="nav-link" href="#education" tabindex="-1" aria-disabled="true">Education</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#code" tabindex="-1" aria-disabled="true">Code Example</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#languages" tabindex="-1" aria-disabled="true">Languages</a>
                             </li>
                         </ul>
                     </div>
@@ -43,7 +49,102 @@
                         <p class="lead">For very long time I was interested in programming. More than a year ago I came upon “CS50: Introduction to Computer Science”. Since then I have been trying to learn programming and dedicated my free time to practicing as much as I could.</p>
                     </div>
                 </div>
-              </div>
+            </div>
+            <div class="container col-xxl-8 px-4 py-5">
+                <div id="contacts" class="shadow d-flex flex-column flex-md-row justify-content-between mb-5 item">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0">Contact Information</h3>
+                        <ul>
+                            <li><b>Phone:</b> +7 776 012 08 02</li>
+                            <li><b>E-mail:</b> suhanjer@gmail.com</li>
+                            <li><b>Telegram:</b> @AnuarSadykov</li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="education" class="shadow d-flex flex-column flex-md-row justify-content-between mb-5 item">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0">Education and Courses</h3>
+                        <ul>
+                            <li>CS50’s Introduction to Computer Science (Complete)</li>
+                            <li>CS50’s Web Programming with Python and JavaScript (Final project)</li>
+                            <li>JavaScript/Front-end 2021Q3 (Just started)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div id="code" class="shadow d-flex flex-column flex-md-row justify-content-between mb-5 item">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0">Code Example</h3>
+                        <div>
+                            <div class="card" style="width: 100%;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Reverse or rotate?</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">The input is a string str of digits. Cut the string into chunks (a chunk here is a substring of the initial string) of size sz (ignore the last chunk if its size is less than sz).</h6>
+                                    <h6 class="card-subtitle mb-2 text-muted">If a chunk represents an integer such as the sum of the cubes of its digits is divisible by 2, reverse that chunk; otherwise rotate it to the left by one position. Put together these modified chunks and return the result as a string.</h6>
+                                    <p class="card-text">
+                                        <pre>
+                                            <code>
+                                                function revrot(str, sz) {
+                                                    let length = str.length;
+                                                    let numchunks = Math.floor(length/sz, 1);
+                                                    if (sz == 0) {
+                                                        return "";
+                                                    }
+                                                    if (numchunks == 0){
+                                                        return "";
+                                                    }
+                                                    let arr = []
+                                                    for (let i=0; i < numchunks; i++){
+                                                        arr[i] = str.slice(0, sz);
+                                                        str = str.slice(sz);
+                                                    }
+                                                    for (let i in arr) {
+                                                        let sum = 0;
+                                                        for (let j of arr[i]) {
+                                                            sum = sum + parseInt(j)**3;
+                                                        }
+                                                        if (sum % 2 == 0) {
+                                                            arr[i] = arr[i].split("").reverse().join("");
+                                                        }
+                                                        else {
+                                                            let ch = arr[i].split("");
+                                                            //console.log(ch);
+                                                            let first = ch[0];
+                                                            ch = ch.slice(1);
+                                                            ch.push(first);
+                                                            arr[i] = ch.join("");
+                                                        }
+                                                    }
+                                                    return (arr.join(""));
+                                                }                                        
+                                            </code>                                    
+                                        </pre>
+                                    </p>
+                                    <a href="https://www.codewars.com/kata/56b5afb4ed1f6d5fb0000991" class="card-link">Codewars link</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="languages" class="shadow d-flex flex-column flex-md-row justify-content-between mb-5 item">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0">Languages</h3>
+                        <ul>
+                            <li>English - B2 (Epam Test)</li>
+                            <li>Turkish</li>
+                            <li>Russian</li>
+                            <li>Kazakh</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </main>
+        <footer class="footer">
+            <div class="d-flex justify-content-between">
+                <a href="https://github.com/suhanjer"><img src="github.png"><span class="text-muted">Suhanjer GitHub</span></a>
+                <span class="text-muted">2021</span>
+                <img src="rs_school_js.svg">
+            </div>
+        </footer>
     </body>
 </html>
