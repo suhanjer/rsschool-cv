@@ -2,10 +2,12 @@
 <html lang="ru">
     <head>
         <title>Anuar Sadykov CV</title>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="bootstrap.min.css">
-        <script src="bootstrap.min.js"></script>
+        <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="styles/bootstrap.min.css">
+        <script src="scripts/bootstrap.min.js"></script>
     </head>
     <body>
         <header>
@@ -24,13 +26,13 @@
                                 <a class="nav-link" href="#contacts">Contact Information</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#education" tabindex="-1" aria-disabled="true">Education</a>
+                                <a class="nav-link" href="#education" tabindex="-1">Education</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#code" tabindex="-1" aria-disabled="true">Code Example</a>
+                                <a class="nav-link" href="#code" tabindex="-1">Code Example</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#languages" tabindex="-1" aria-disabled="true">Languages</a>
+                                <a class="nav-link" href="#languages" tabindex="-1">Languages</a>
                             </li>
                         </ul>
                     </div>
@@ -41,7 +43,7 @@
             <div class="container col-xxl-8 px-4 py-5">
                 <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
                     <div class="col-10 col-sm-8 col-lg-6">
-                        <img src="photo.jpg" class="d-block mx-lg-auto img-fluid" alt="personal photo" loading="lazy" width="700" height="500">
+                        <img src="images/photo.jpg" class="d-block mx-lg-auto img-fluid" alt="personal photo" loading="lazy" width="700" height="500">
                     </div>
                     <div class="col-lg-6">
                         <h1 class="display-5 fw-bold lh-1 mb-3">Anuar Sadykov</h1>
@@ -55,9 +57,9 @@
                     <div class="flex-grow-1">
                         <h3 class="mb-0">Contact Information</h3>
                         <ul>
-                            <li><b>Phone:</b> +7 776 012 08 02</li>
-                            <li><b>E-mail:</b> suhanjer@gmail.com</li>
-                            <li><b>Telegram:</b> @AnuarSadykov</li>
+                            <li><b>Phone:</b> <a href="tel:+77760120802">+7 776 012 08 02</a></li>
+                            <li><b>E-mail:</b> <a href="suhanjer@gmail.com">suhanjer@gmail.com</a></li>
+                            <li><b>Telegram:</b> <a href="https://t.me/AnuarSadykov">@AnuarSadykov</a></li>
                         </ul>
                     </div>
                 </div>
@@ -81,45 +83,43 @@
                                     <h5 class="card-title">Reverse or rotate?</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">The input is a string str of digits. Cut the string into chunks (a chunk here is a substring of the initial string) of size sz (ignore the last chunk if its size is less than sz).</h6>
                                     <h6 class="card-subtitle mb-2 text-muted">If a chunk represents an integer such as the sum of the cubes of its digits is divisible by 2, reverse that chunk; otherwise rotate it to the left by one position. Put together these modified chunks and return the result as a string.</h6>
-                                    <p class="card-text">
-                                        <pre>
-                                            <code>
-                                                function revrot(str, sz) {
-                                                    let length = str.length;
-                                                    let numchunks = Math.floor(length/sz, 1);
-                                                    if (sz == 0) {
-                                                        return "";
+                                    <pre class="card-text">
+                                        <code>
+                                            function revrot(str, sz) {
+                                                let length = str.length;
+                                                let numchunks = Math.floor(length/sz, 1);
+                                                if (sz == 0) {
+                                                    return "";
+                                                }
+                                                if (numchunks == 0){
+                                                    return "";
+                                                }
+                                                let arr = []
+                                                for (let i=0; i &lt; numchunks; i++){
+                                                    arr[i] = str.slice(0, sz);
+                                                    str = str.slice(sz);
+                                                }
+                                                for (let i in arr) {
+                                                    let sum = 0;
+                                                    for (let j of arr[i]) {
+                                                        sum = sum + parseInt(j)**3;
                                                     }
-                                                    if (numchunks == 0){
-                                                        return "";
+                                                    if (sum % 2 == 0) {
+                                                        arr[i] = arr[i].split("").reverse().join("");
                                                     }
-                                                    let arr = []
-                                                    for (let i=0; i < numchunks; i++){
-                                                        arr[i] = str.slice(0, sz);
-                                                        str = str.slice(sz);
+                                                    else {
+                                                        let ch = arr[i].split("");
+                                                        //console.log(ch);
+                                                        let first = ch[0];
+                                                        ch = ch.slice(1);
+                                                        ch.push(first);
+                                                        arr[i] = ch.join("");
                                                     }
-                                                    for (let i in arr) {
-                                                        let sum = 0;
-                                                        for (let j of arr[i]) {
-                                                            sum = sum + parseInt(j)**3;
-                                                        }
-                                                        if (sum % 2 == 0) {
-                                                            arr[i] = arr[i].split("").reverse().join("");
-                                                        }
-                                                        else {
-                                                            let ch = arr[i].split("");
-                                                            //console.log(ch);
-                                                            let first = ch[0];
-                                                            ch = ch.slice(1);
-                                                            ch.push(first);
-                                                            arr[i] = ch.join("");
-                                                        }
-                                                    }
-                                                    return (arr.join(""));
-                                                }                                        
-                                            </code>                                    
-                                        </pre>
-                                    </p>
+                                                }
+                                                return (arr.join(""));
+                                            }                                        
+                                        </code>                                    
+                                    </pre>
                                     <a href="https://www.codewars.com/kata/56b5afb4ed1f6d5fb0000991" class="card-link">Codewars link</a>
                                 </div>
                             </div>
@@ -141,9 +141,9 @@
         </main>
         <footer class="footer">
             <div class="d-flex justify-content-between">
-                <a href="https://github.com/suhanjer"><img src="github.png"><span class="text-muted">Suhanjer GitHub</span></a>
+                <a href="https://github.com/suhanjer"><img src="images/github.png" alt="github logo"><span class="text-muted">Suhanjer GitHub</span></a>
                 <span class="text-muted">2021</span>
-                <img src="rs_school_js.svg">
+                <a href="https://rs.school/js/"><img src="images/rs_school_js.svg" alt="github logo"></a>
             </div>
         </footer>
     </body>
