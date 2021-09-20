@@ -11,7 +11,7 @@
 
 ----------
 
-### About Myself
+### About Myself:
 For very long time I was interested in programming. More than a year ago I came upon "CS50: Introduction to Computer Science". Since then I have been trying to learn programming and dedicated my free time to practicing as much as I could.
 
 ----------
@@ -19,14 +19,15 @@ For very long time I was interested in programming. More than a year ago I came 
 ### Education and courses:
 
 * **CS50's Introduction to Computer Science** (Complete)<br>
-* **CS50's Web Programming with Python and JavaScript** (Final project)
-* **JavaScript/Front-end 2021Q3** (Just started)
+* **CS50's Web Programming with Python and JavaScript** (Final project)<br>
+* **JavaScript/Front-end 2021Q3** (Just started)<br>
 
 ----------
 
 ### Code Example:
 
-**Reverse or rotate?**
+**Reverse or rotate?**<br>
+
 *The input is a string str of digits. Cut the string into chunks (a chunk here is a substring of the initial string) of size sz (ignore the last chunk if its size is less than sz).
 
 If a chunk represents an integer such as the sum of the cubes of its digits is divisible by 2, reverse that chunk; otherwise rotate it to the left by one position. Put together these modified chunks and return the result as a string.*
@@ -70,5 +71,6 @@ function revrot(str, sz) {
 ----------
 
 ### Languages:
-* **English** - B2 (Epam Test)
-* **Turkish** - A2
+* **English** - B2 (Epam Test)<br>
+* **Turkish**<br>
+* **Russian**<br>
